@@ -5,7 +5,16 @@ import { useLocation, useParams } from 'react-router-dom';
 
 import api from '../../services/api';
 
-import { Container, ComicsList, ComicItem } from './styles';
+import {
+    Container,
+    ComicsList,
+    ComicItem,
+    WrapperComicItem,
+    Avatar,
+    Title,
+    Cover,
+    Description,
+} from './styles';
 
 export default function Character() {
     const location = useLocation();
@@ -36,7 +45,7 @@ export default function Character() {
             <img
                 src={
                     `${character.thumbnail.path}.${character.thumbnail.extension}` ||
-                    'https://api.adorable.io/avatars/50/abott@adorable.png'
+                    'https://api.adorable.io/avatars/100/abott@adorable.png'
                 }
                 alt=""
             />
@@ -47,7 +56,20 @@ export default function Character() {
                 <h3>Fascículos</h3>
                 {comics.map(comic => (
                     <ComicItem key={comic.id}>
-                        <h1>{comic.id}</h1>
+                        <WrapperComicItem>
+                            <Avatar>
+                                <img
+                                    src={
+                                        `${comic.thumbnail.path}.${comic.thumbnail.extension}` ||
+                                        'https://api.adorable.io/avatars/100/abott@adorable.png'
+                                    }
+                                    alt=""
+                                />
+                            </Avatar>
+                            <Title>{comic.title}</Title>
+                            <Cover>{comic.digitalId}</Cover>
+                            <Description>{comic.description}</Description>
+                        </WrapperComicItem>
                     </ComicItem>
                 ))}
             </ComicsList>

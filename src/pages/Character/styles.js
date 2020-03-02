@@ -37,3 +37,40 @@ export const ComicItem = styled.div`
     display: flex;
     margin-top: 20px;
 `;
+
+export const WrapperComicItem = styled.div`
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 80px 1fr;
+    background-color: #fff;
+    color: #444;
+`;
+
+export const Avatar = styled.div`
+    grid-column: 1;
+    grid-row: 1/3;
+
+    img {
+        border-radius: 0;
+        width: 70px;
+        height: 70px;
+    }
+`;
+
+export const Title = styled.div`
+    grid-column: 2;
+    grid-row: 1;
+    font-weight: 600;
+`;
+
+export const Cover = styled.div`
+    grid-column: 3;
+    grid-row: 1;
+    font-weight: 600;
+`;
+
+export const Description = styled.div`
+    grid-column: 2;
+    grid-row: 2;
+    color: #444;
+`;
