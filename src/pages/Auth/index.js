@@ -11,8 +11,8 @@ import { Content, Wrapper } from './styles';
 import logo from '../../assets/logo.svg';
 
 const schema = Yup.object().shape({
-    privateKey: Yup.string().required('Private key is required!'),
-    publicKey: Yup.string().required('Public key is required!'),
+    privateKey: Yup.string().required('Private key é obrigatória!'),
+    publicKey: Yup.string().required('Public key é obrigatória!'),
 });
 
 export default function Auth() {
@@ -29,16 +29,22 @@ export default function Auth() {
             <Content>
                 <img src={logo} alt="GoBarber" />
 
-                <Form schema={schema} onSubmit={handleSubmit}>
+                <Form
+                    schema={schema}
+                    onSubmit={handleSubmit}
+                    data-testid="auth-form"
+                >
                     <Input
                         name="privateKey"
                         type="text"
                         placeholder="Private key"
+                        id="privateKey"
                     />
                     <Input
                         name="publicKey"
                         type="text"
                         placeholder="Public key"
+                        id="publicKey"
                     />
 
                     <button type="submit" disabled={loading}>
