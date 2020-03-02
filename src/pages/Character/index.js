@@ -41,6 +41,7 @@ export default function Character() {
                     params: {
                         apikey: auth.publicKey,
                         hash: auth.hash,
+                        ts: auth.timestamp,
                     },
                 });
                 setComics(response.data.data.results);
@@ -49,7 +50,7 @@ export default function Character() {
             }
         }
         loadComics();
-    }, [auth.hash, auth.publicKey, id]);
+    }, [auth.hash, auth.publicKey, auth.timestamp, id]);
 
     function handlePrevDay() {
         history.push('/Main');

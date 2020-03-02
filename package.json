@@ -1,11 +1,14 @@
 {
-  "name": "react-boilerplate",
+  "homepage": "http://viniciusmurad.github.io/reactjs-marvel",
+  "name": "react-marvel",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack-dev-server --mode development --open"
+    "dev": "webpack-dev-server --mode development --open",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d public"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
