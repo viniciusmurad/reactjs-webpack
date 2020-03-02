@@ -49,3 +49,12 @@ export const Description = styled.div`
         color: #5a5757;
     }
 `;
+
+export const LastModified = styled.div`
+    display: flex;
+    align-items: flex-end;
+
+    span {
+        margin-left: 5px;
+    }
+`;

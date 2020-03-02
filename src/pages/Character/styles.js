@@ -10,6 +10,16 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
 
+    header {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        button {
+            border: 0;
+            background: none;
+        }
+    }
+
     img {
         border-radius: 50%;
         width: 100px;
@@ -36,6 +46,9 @@ export const ComicsList = styled.div`
 export const ComicItem = styled.div`
     display: flex;
     margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #eee;
+    width: 100%;
 `;
 
 export const WrapperComicItem = styled.div`
@@ -44,6 +57,7 @@ export const WrapperComicItem = styled.div`
     grid-template-columns: 80px 1fr;
     background-color: #fff;
     color: #444;
+    width: 100%;
 `;
 
 export const Avatar = styled.div`

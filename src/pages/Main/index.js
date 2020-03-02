@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import { format, parseISO } from 'date-fns';
 import pt from 'date-fns/locale/pt';
@@ -8,7 +7,7 @@ import pt from 'date-fns/locale/pt';
 import { MdHistory } from 'react-icons/md';
 import history from '../../services/history';
 
-import { Container, Card, Description } from './styles';
+import { Container, Card, Description, LastModified } from './styles';
 
 import Header from '../../components/Header';
 
@@ -46,10 +45,10 @@ export default function Main() {
                             alt=""
                         />
                         <strong>{character.name}</strong>
-                        <span>
+                        <LastModified>
                             <MdHistory size={20} color="#5a5757" />
-                            {character.date}
-                        </span>
+                            <span>{character.date}</span>
+                        </LastModified>
                         <Description>
                             <span>{character.description}</span>
                         </Description>

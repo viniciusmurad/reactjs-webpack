@@ -3,6 +3,10 @@ import { useSelector } from 'react-redux';
 
 import { useLocation, useParams } from 'react-router-dom';
 
+import { MdChevronLeft } from 'react-icons/md';
+
+import history from '../../services/history';
+
 import api from '../../services/api';
 
 import {
@@ -23,8 +27,6 @@ export default function Character() {
     const { auth } = useSelector(state => state.characters);
     const [comics, setComics] = useState([]);
 
-    console.log(character);
-
     useEffect(() => {
         async function loadComics() {
             const response = await api.get(`characters/${id}/comics`, {
@@ -34,14 +36,21 @@ export default function Character() {
                 },
             });
             setComics(response.data.data.results);
-            // console.log(comics);
-            console.log('eae', response.data.data.results);
         }
         loadComics();
     }, [auth.hash, auth.publicKey, id]);
 
+    function handlePrevDay() {
+        history.push('/Main');
+    }
+
     return (
         <Container>
+            <header>
+                <button type="button" onClick={handlePrevDay}>
+                    <MdChevronLeft size={36} color="#000" />
+                </button>
+            </header>
             <img
                 src={
                     `${character.thumbnail.path}.${character.thumbnail.extension}` ||
@@ -67,8 +76,10 @@ export default function Character() {
                                 />
                             </Avatar>
                             <Title>{comic.title}</Title>
-                            <Cover>{comic.digitalId}</Cover>
-                            <Description>{comic.description}</Description>
+                            <Cover>{comic.issueNumber}</Cover>
+                            <Description>
+                                {comic.description || 'TBA'}
+                            </Description>
                         </WrapperComicItem>
                     </ComicItem>
                 ))}

@@ -17,7 +17,7 @@ export function* getCharacters({ payload }) {
 
         const response = yield call(api, {
             method: 'get',
-            url: `https://gateway.marvel.com/v1/public/characters?apikey=${publicKey}&ts=${timestamp}&hash=${hash.hex()}`,
+            url: `https://gateway.marvel.com/v1/public/characters?apikey=${publicKey}&ts=${timestamp}&limit=5&hash=${hash.hex()}`,
         });
 
         const auth = {
