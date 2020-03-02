@@ -3,11 +3,13 @@ const path = require('path');
 module.exports = {
     entry: path.resolve(__dirname, 'src', 'index.js'),
     output: {
-        path: path.resolve(__dirname, 'public'),
         filename: 'bundle.js',
+        path: path.resolve(__dirname, 'public'),
+        publicPath: '/',
     },
     devServer: {
         contentBase: path.resolve(__dirname, 'public'),
+        historyApiFallback: true,
     },
     module: {
         rules: [
@@ -27,6 +29,17 @@ module.exports = {
                 use: {
                     loader: 'file-loader',
                 },
+            },
+            {
+                test: /\.svg$/,
+                use: [
+                    {
+                        loader: 'svg-url-loader',
+                        options: {
+                            limit: 10000,
+                        },
+                    },
+                ],
             },
         ],
     },
