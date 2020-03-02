@@ -1,4 +1,4 @@
-import { call, select, put, all, takeLatest } from 'redux-saga/effects';
+import { call, put, all, takeLatest } from 'redux-saga/effects';
 
 import md5 from 'js-md5';
 
@@ -9,7 +9,9 @@ import history from '../../../services/history';
 
 export function* getCharacters({ payload }) {
     try {
-        const { privateKey, publicKey } = payload;
+        const { privateKey, publicKey, offset } = payload;
+
+        console.log('offset', offset);
 
         const timestamp = Number(new Date());
         const hash = md5.create();
@@ -17,16 +19,17 @@ export function* getCharacters({ payload }) {
 
         const response = yield call(api, {
             method: 'get',
-            url: `https://gateway.marvel.com/v1/public/characters?apikey=${publicKey}&ts=${timestamp}&limit=5&hash=${hash.hex()}`,
+            url: `https://gateway.marvel.com/v1/public/characters?apikey=${publicKey}&ts=${timestamp}&limit=5&offset=${offset}&hash=${hash.hex()}`,
         });
 
         const auth = {
             hash: hash.hex(),
             timestamp,
             publicKey,
+            privateKey,
         };
 
-        yield put(charactersSuccess(response.data.data, auth));
+        yield put(charactersSuccess(response.data.data, auth, offset));
         history.push('/main');
     } catch (err) {
         yield put(charactersFailure());

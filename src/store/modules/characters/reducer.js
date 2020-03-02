@@ -5,6 +5,7 @@ const INITIAL_STATE = {
     auth: null,
     loading: false,
     characters: null,
+    offset: 5,
 };
 
 export default function characters(state = INITIAL_STATE, action) {
@@ -15,9 +16,12 @@ export default function characters(state = INITIAL_STATE, action) {
                 break;
             }
             case '@characters/SUCCESS_REQUEST': {
+                console.log(state);
+                console.log(action);
                 draft.authorized = true;
                 draft.auth = action.payload.auth;
                 draft.characters = action.payload.data;
+                draft.offset = action.payload.offset;
                 draft.loading = false;
                 break;
             }

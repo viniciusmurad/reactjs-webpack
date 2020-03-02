@@ -1,14 +1,14 @@
-export function charactersRequest(privateKey, publicKey) {
+export function charactersRequest(privateKey, publicKey, offset) {
     return {
         type: '@characters/REQUEST',
-        payload: { privateKey, publicKey },
+        payload: { privateKey, publicKey, offset },
     };
 }
 
-export function charactersSuccess(data, auth) {
+export function charactersSuccess(data, auth, offset) {
     return {
         type: '@characters/SUCCESS_REQUEST',
-        payload: { data, auth },
+        payload: { data, auth, offset },
     };
 }
 

@@ -1,10 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { format, parseISO } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 
 import { MdHistory } from 'react-icons/md';
+import { charactersRequest } from '../../store/modules/characters/actions';
 import history from '../../services/history';
 
 import { Container, Card, Description, LastModified } from './styles';
@@ -12,7 +13,8 @@ import { Container, Card, Description, LastModified } from './styles';
 import Header from '../../components/Header';
 
 export default function Main() {
-    const { characters } = useSelector(state => state.characters);
+    const { characters, offset, auth } = useSelector(state => state.characters);
+    const dispatch = useDispatch();
     const data = characters.results.map(item => {
         const date = format(parseISO(item.modified), "d 'de' MMMM 'de' yyyy", {
             locale: pt,
@@ -20,13 +22,17 @@ export default function Main() {
         return { date, ...item };
     });
 
-    console.log(data);
-
     function handleRedirect(character) {
         history.push({
             pathname: `/character/${character.id}`,
             state: { detail: character },
         });
+    }
+
+    async function loadMore() {
+        let newOffset = offset;
+        newOffset += 5;
+        dispatch(charactersRequest(auth.privateKey, auth.publicKey, newOffset));
     }
 
     return (
@@ -54,6 +60,7 @@ export default function Main() {
                         </Description>
                     </Card>
                 ))}
+                <button onClick={() => loadMore()}>Load more</button>
             </ul>
         </Container>
     );

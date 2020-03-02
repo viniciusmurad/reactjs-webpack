@@ -1,6 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
@@ -18,9 +17,10 @@ const schema = Yup.object().shape({
 
 export default function Auth() {
     const dispatch = useDispatch();
+    const offSet = 5;
 
     async function handleSubmit({ privateKey, publicKey }) {
-        dispatch(charactersRequest(privateKey, publicKey));
+        dispatch(charactersRequest(privateKey, publicKey, offSet));
     }
 
     return (
