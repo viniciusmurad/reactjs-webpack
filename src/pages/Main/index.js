@@ -33,6 +33,7 @@ export default function Main() {
         let newOffset = offset;
         newOffset += 5;
         dispatch(charactersRequest(auth.privateKey, auth.publicKey, newOffset));
+        window.scroll(0, 150);
     }
 
     return (
@@ -60,7 +61,9 @@ export default function Main() {
                         </Description>
                     </Card>
                 ))}
-                <button onClick={() => loadMore()}>Load more</button>
+                <button type="button" onClick={() => loadMore()}>
+                    Load more
+                </button>
             </ul>
         </Container>
     );

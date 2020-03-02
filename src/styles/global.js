@@ -21,6 +21,7 @@ export default createGlobalStyle`
     body {
         -webkit-font-smoothing: antialiased;
         background: linear-gradient(TO RIGHT, #040404, #656565);
+        scroll-behavior: smooth;
     }
 
     body, input, button {

@@ -16,11 +16,23 @@ export default function characters(state = INITIAL_STATE, action) {
                 break;
             }
             case '@characters/SUCCESS_REQUEST': {
-                console.log(state);
-                console.log(action);
+                let data = {};
+
+                if (state.characters) {
+                    data = {
+                        ...action.payload.data,
+                        results: [
+                            ...state.characters.results,
+                            ...action.payload.data.results,
+                        ],
+                    };
+                } else {
+                    data = action.payload.data;
+                }
+
                 draft.authorized = true;
                 draft.auth = action.payload.auth;
-                draft.characters = action.payload.data;
+                draft.characters = data;
                 draft.offset = action.payload.offset;
                 draft.loading = false;
                 break;

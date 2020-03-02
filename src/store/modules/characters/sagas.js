@@ -10,8 +10,7 @@ import history from '../../../services/history';
 export function* getCharacters({ payload }) {
     try {
         const { privateKey, publicKey, offset } = payload;
-
-        console.log('offset', offset);
+        console.log(payload);
 
         const timestamp = Number(new Date());
         const hash = md5.create();
@@ -32,6 +31,7 @@ export function* getCharacters({ payload }) {
         yield put(charactersSuccess(response.data.data, auth, offset));
         history.push('/main');
     } catch (err) {
+        console.log(err);
         yield put(charactersFailure());
     }
 }
