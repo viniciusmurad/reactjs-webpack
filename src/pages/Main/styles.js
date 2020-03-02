@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 export const Container = styled.div`
     max-width: 600px;
@@ -10,6 +11,21 @@ export const Container = styled.div`
         display: grid;
         grid-gap: 15px;
         margin-top: 30px;
+    }
+
+    button {
+        margin: 5px 0 0;
+        height: 44px;
+        background: #3b9eff;
+        font-weight: bold;
+        border: 0;
+        border-radius: 4px;
+        font-size: 16px;
+        color: #fff;
+        transition: bacgrkound 0.2s;
+        &:hover {
+            background: ${darken(0.03, '#3b9eff')};
+        }
     }
 `;
 
@@ -57,4 +73,9 @@ export const LastModified = styled.div`
     span {
         margin-left: 5px;
     }
+`;
+
+export const Image = styled.img`
+    display: block;
+    background: gray;
 `;

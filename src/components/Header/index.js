@@ -1,21 +1,34 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { MdExitToApp } from 'react-icons/md';
 
 import logo from '../../assets/logo.svg';
+
+import { signOut } from '../../store/modules/characters/actions';
 
 import { Container, Content } from './styles';
 
 export default function Header() {
+    const dispatch = useDispatch();
+
+    function logout() {
+        dispatch(signOut());
+    }
+
     return (
         <Container>
             <Content>
                 <nav>
-                    {/* <img src={logo} alt="GoBarber" /> */}
-                    <Link to="/dashboard">DASHBOARD</Link>
+                    <img src={logo} alt="Marvel" />
                 </nav>
 
-                <aside>Ae</aside>
+                <aside>
+                    <MdExitToApp
+                        size={20}
+                        color="#5a5757"
+                        onClick={() => logout()}
+                    />
+                </aside>
             </Content>
         </Container>
     );

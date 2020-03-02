@@ -1,4 +1,5 @@
 import { call, put, all, takeLatest } from 'redux-saga/effects';
+import { toast } from 'react-toastify';
 
 import md5 from 'js-md5';
 
@@ -10,7 +11,6 @@ import history from '../../../services/history';
 export function* getCharacters({ payload }) {
     try {
         const { privateKey, publicKey, offset } = payload;
-        console.log(payload);
 
         const timestamp = Number(new Date());
         const hash = md5.create();
@@ -31,9 +31,16 @@ export function* getCharacters({ payload }) {
         yield put(charactersSuccess(response.data.data, auth, offset));
         history.push('/main');
     } catch (err) {
-        console.log(err);
+        toast.error('Algo ocorreu errado. Tente novamente!');
         yield put(charactersFailure());
     }
 }
 
-export default all([takeLatest('@characters/REQUEST', getCharacters)]);
+export function signOut() {
+    history.push('/');
+}
+
+export default all([
+    takeLatest('@characters/REQUEST', getCharacters),
+    takeLatest('@characters/SIGN_OUT', signOut),
+]);

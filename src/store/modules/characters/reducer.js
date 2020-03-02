@@ -41,6 +41,14 @@ export default function characters(state = INITIAL_STATE, action) {
                 draft.loading = false;
                 break;
             }
+            case '@characters/SIGN_OUT': {
+                draft.loading = false;
+                draft.authorized = false;
+                draft.auth = null;
+                draft.characters = null;
+                draft.offset = null;
+                break;
+            }
             default:
         }
     });

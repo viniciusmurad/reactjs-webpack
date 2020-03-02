@@ -19,6 +19,8 @@ export const Content = styled.div`
             margin-right: 20px;
             padding-right: 20px;
             border-right: 1px solid #eee;
+            width: 90px;
+            height: 40px;
         }
         a {
             font-weight: bold;
@@ -26,6 +28,7 @@ export const Content = styled.div`
         }
     }
     aside {
+        cursor: pointer;
         display: flex;
         align-items: center;
     }

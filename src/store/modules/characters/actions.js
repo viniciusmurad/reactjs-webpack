@@ -17,3 +17,9 @@ export function charactersFailure() {
         type: '@characters/FAILURE_REQUEST',
     };
 }
+
+export function signOut() {
+    return {
+        type: '@characters/SIGN_OUT',
+    };
+}

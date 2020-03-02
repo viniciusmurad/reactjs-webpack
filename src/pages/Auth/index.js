@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
@@ -17,6 +17,7 @@ const schema = Yup.object().shape({
 
 export default function Auth() {
     const dispatch = useDispatch();
+    const loading = useSelector(state => state.characters.loading);
     const offSet = 5;
 
     async function handleSubmit({ privateKey, publicKey }) {
@@ -40,7 +41,9 @@ export default function Auth() {
                         placeholder="Public key"
                     />
 
-                    <button type="submit">SUBMIT</button>
+                    <button type="submit" disabled={loading}>
+                        {loading ? 'Carregando...' : 'Entrar'}
+                    </button>
                 </Form>
             </Content>
         </Wrapper>

@@ -68,6 +68,8 @@ export const Avatar = styled.div`
         border-radius: 0;
         width: 70px;
         height: 70px;
+        display: block;
+        background: gray;
     }
 `;
 
@@ -87,4 +89,13 @@ export const Description = styled.div`
     grid-column: 2;
     grid-row: 2;
     color: #444;
+`;
+
+export const Image = styled.img`
+    display: block;
+    background: gray;
+`;
+
+export const NoItemFound = styled.span`
+    font-weight: 400;
 `;
