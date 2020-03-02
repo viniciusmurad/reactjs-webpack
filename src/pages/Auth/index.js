@@ -11,8 +11,8 @@ import { Content, Wrapper } from './styles';
 import logo from '../../assets/logo.svg';
 
 const schema = Yup.object().shape({
-    privateKey: Yup.string().required('Private key is required!'),
-    publicKey: Yup.string().required('Public key is required!'),
+    privateKey: Yup.string().required('Private key é obrigatória!'),
+    publicKey: Yup.string().required('Public key é obrigatória!'),
 });
 
 export default function Auth() {

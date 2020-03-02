@@ -28,6 +28,7 @@ export const Container = styled.div`
 
     strong {
         margin-top: 20px;
+        font-size: 20px;
     }
 
     span {

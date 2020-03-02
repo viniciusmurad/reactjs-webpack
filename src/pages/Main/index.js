@@ -69,7 +69,7 @@ export default function Main() {
                         onClick={() => loadMore()}
                         disabled={loading}
                     >
-                        {loading ? 'Carregando...' : 'Carregar mais itens'}
+                        {loading ? 'Carregando...' : 'Carregar itens'}
                     </button>
                 </ul>
             </Container>
