@@ -52,7 +52,7 @@ export default function Character() {
         loadComics();
     }, [auth.hash, auth.publicKey, auth.timestamp, id]);
 
-    function handlePrevDay() {
+    function back() {
         history.push('/Main');
     }
 
@@ -61,7 +61,7 @@ export default function Character() {
             <Header />
             <Container>
                 <header>
-                    <button type="button" onClick={handlePrevDay}>
+                    <button type="button" onClick={back}>
                         <MdChevronLeft size={36} color="#000" />
                     </button>
                 </header>
