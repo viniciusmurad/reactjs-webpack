@@ -48,4 +48,4 @@ http://localhost:8080/
 ```
 
 ### Demo
-![Demo](https://i.imgur.com/CMEbGfK.gif)
+![Demo](https://i.imgur.com/nQMyZH1.gif)
