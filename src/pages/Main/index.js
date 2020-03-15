@@ -47,10 +47,7 @@ export default function Main() {
                             onClick={() => handleRedirect(character)}
                         >
                             <Image
-                                src={
-                                    `${character.thumbnail.path}.${character.thumbnail.extension}` ||
-                                    'https://api.adorable.io/avatars/50/abott@adorable.png'
-                                }
+                                src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
                                 alt={character.name}
                             />
                             <strong>{character.name}</strong>

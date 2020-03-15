@@ -4,6 +4,7 @@ This application provides a list of characters from marvel api and it is also po
 ### Prerequisites
 ```
 1. Node JS
+2. Yarn
 ```
 
 ### This app was built using:

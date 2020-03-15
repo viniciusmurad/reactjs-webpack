@@ -84,10 +84,7 @@ export default function Character() {
                                     <WrapperComicItem>
                                         <Avatar>
                                             <img
-                                                src={
-                                                    `${comic.thumbnail.path}.${comic.thumbnail.extension}` ||
-                                                    'https://api.adorable.io/avatars/100/abott@adorable.png'
-                                                }
+                                                src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
                                                 alt={comic.title}
                                             />
                                         </Avatar>

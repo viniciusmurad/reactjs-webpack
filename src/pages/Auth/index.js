@@ -27,7 +27,7 @@ export default function Auth() {
     return (
         <Wrapper>
             <Content>
-                <img src={logo} alt="GoBarber" />
+                <img src={logo} alt="Marvel" />
 
                 <Form schema={schema} onSubmit={handleSubmit}>
                     <Input
