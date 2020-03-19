@@ -1,5 +1,5 @@
 # Marvel React
-This application provides a list of characters from marvel api and it is also possible to view the comics that each hero participated. There is a GIF at the bottom of the page for demonstration.
+This application provides a list of characters from marvel api and it is also possible to view the comics that each hero participated. There is a GIF at the bottom of the page for demonstration. I made the same web app using Angular, you can check click [here](https://github.com/viniciusmurad/angular-marvel)
 
 ### Prerequisites
 ```
